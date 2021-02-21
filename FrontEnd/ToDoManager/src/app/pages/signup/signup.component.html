@@ -1,1 +1,22 @@
-<p>signup works!</p>
+<div class='container d-flex'>
+    <div class="shadow-lg p-3 mb-5 bg-body rounded container border border-1 my-5 col-xxl-5 col-xl-5 col-lg-7 col-md-8 col-sm-10 col-12">
+        
+        <input class='border border-1 form-control-plaintext form-control px-2 my-2 mt-5 col-12' type='text' id='username' placeholder='Username'>
+        <input type="password" class="border border-1 form-control-plaintext form-control px-2 my-3" id='password' placeholder="Password">
+        <input type="password" class="border border-1 form-control-plaintext form-control px-2 my-3" id='cpassword' placeholder="Confirm password">
+        <input type="email" class="border border-1 form-control-plaintext form-control px-2 my-3" id='email' placeholder="email@example.com">
+        <input type="text" class="border border-1 form-control-plaintext form-control px-2 my-3" id='phone' placeholder="phone">
+        <input class="form-control" list="datalistOptions" id="category" placeholder="Category">
+            <datalist id="datalistOptions">
+                <option value="Technology">
+                <option value="Literature">
+                <option value="Education">
+                <option value="Music">
+                <option value="Art">
+            </datalist>
+        <div class="col-12 px-auto text-center">
+            <button class="btn btn-primary my-3 mx-2">Sign Up</button>
+            <button class="btn btn-outline-primary my-3 mx-2" routerLink='/login'>Login</button>
+        </div>
+    </div>
+</div>
