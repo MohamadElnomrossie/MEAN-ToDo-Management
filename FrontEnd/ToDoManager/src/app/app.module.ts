@@ -13,7 +13,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TodosComponent } from './pages/todos/todos/todos.component';
 import { HomeComponent } from './pages/dashBoard/home/home.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,

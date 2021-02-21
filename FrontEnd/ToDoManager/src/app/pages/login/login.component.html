@@ -5,6 +5,8 @@
         <input type="password" class="border border-1 form-control-plaintext form-control px-2 my-3" id='password' placeholder="Password" [(ngModel)]="password">
         <div class="col-12 px-auto text-center">
             <button class="btn btn-primary my-3 mx-2" (click)="login()"[disabled]='loading'>Login</button>
+            <button class="btn btn-outline-primary my-3 mx-2" routerLink='/signup'>Sign up</button>
+            
         </div>
     </div>
 </div>
