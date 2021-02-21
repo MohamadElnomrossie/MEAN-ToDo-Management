@@ -6,7 +6,9 @@ var logger = require('morgan');
 const {router} = require('./routes/auth')
 const {connect}=require('./config/db')
 const {todos}=require('./routes/todos')
+const cors=require('cors')
 var app = express();
+app.use(cors())
 connect()
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
