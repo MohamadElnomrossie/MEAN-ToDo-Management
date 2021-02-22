@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TodosComponent } from './pages/todos/todos/todos.component';
 import { HomeComponent } from './pages/dashBoard/home/home.component';
+import { ToDOCardComponent } from './components/to-docard/to-docard.component';
 
 @NgModule({
   declarations: [
@@ -21,12 +22,14 @@ import { HomeComponent } from './pages/dashBoard/home/home.component';
     SignupComponent,
     TodosComponent,
     HomeComponent,
+    ToDOCardComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    NgbModule,HttpClientModule
+    NgbModule,HttpClientModule,
+  
   ],
   providers: [],
   bootstrap: [AppComponent]

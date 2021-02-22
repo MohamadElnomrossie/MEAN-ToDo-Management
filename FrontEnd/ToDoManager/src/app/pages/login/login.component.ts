@@ -1,5 +1,6 @@
+import { ISignUP } from 'src/app/interfaces/userInterface';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLinkActive } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/users/authentication.service';
 @Component({
   selector: 'app-login',
@@ -12,7 +13,8 @@ email:string='';
 password:string=''
 msg:string=''
   constructor(private authService:AuthenticationService,
-    private router:Router) { }
+    private router:Router,
+    ) { }
   ngOnInit(): void {
   }
   login(){
@@ -21,7 +23,7 @@ msg:string=''
      (result:any)=>{
        window.localStorage.setItem('token','Bearer '+result.token)
        window.localStorage.setItem('id',result._id)
-       this.router.navigate(['/db'])
+       this.router.navigate(['/all'])
      },
      error=>{
        console.log(error);
@@ -30,4 +32,12 @@ msg:string=''
    this.loading=false
    }
   showToast=false
-}
+
+
+  
+    }
+
+
+
+
+
