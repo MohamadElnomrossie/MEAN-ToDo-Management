@@ -11,15 +11,15 @@ URL='http://localhost:3000/todos/'
       authorization:window.localStorage.getItem('token')!
     }})
   }
-  createToDo(){
-return this.http.post(this.URL+'add',{headers:{
+createToDo(title:string,body:string){
+return this.http.post(this.URL+'add',{title,body},{headers:{
   authorization:window.localStorage.getItem('token')!}})
 }
 deleteToDo(){
 
 }
 update(){
-  
+
 }
   }
 

@@ -13,6 +13,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TodosComponent } from './pages/todos/todos/todos.component';
 import { HomeComponent } from './pages/dashBoard/home/home.component';
 import { ToDOCardComponent } from './components/to-docard/to-docard.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { ToDOCardComponent } from './components/to-docard/to-docard.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    NgbModule,HttpClientModule,
+    NgbModule,HttpClientModule, FontAwesomeModule,
   
   ],
   providers: [],
