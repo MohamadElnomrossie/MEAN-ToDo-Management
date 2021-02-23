@@ -16,36 +16,38 @@ export class ToDOCardComponent implements OnInit {
   @Input() body:string=''
   @Input() id:string=''
   @Output() todoDeleted=new EventEmitter()
+  @Output() todoUpdated=new EventEmitter()
 loading=false;
   constructor(private articleService:ToDosService
     ,private modalService: NgbModal) {
    }
-
   ngOnInit(): void {
 
   }
 
   edit(){
-    
+    this.articleService.update(this.id,this.title,this.body).subscribe(
+      result=>{
+        this.todoUpdated.emit([this.title,this.body,this.id])
+      },
+      error=>{
+    console.log(error);
+      }
+    )
+    this.modalService.dismissAll()
   }
-   rem(element:any, _:any) {
-    console.log(element);
-    element.remove();
-}
   deleteTodo(){
   this.loading=true
    this.articleService.deleteToDo(this.id).subscribe(
      result=>{
       console.log("Deleted");
-      
+      this.todoDeleted.emit(this.title)
      },
      error=>{
       console.log(error);
      }
    )
   this.loading=false
-  document.querySelector('#body')?.parentElement?.parentElement?.parentElement?.remove()
-  
   }
   openVerticallyCentered(content:any){
     this.modalService.open(content, { centered: true });

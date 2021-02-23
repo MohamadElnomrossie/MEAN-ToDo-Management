@@ -21,8 +21,10 @@ return this.http.delete(this.URL+id,{headers:{
   authorization:window.localStorage.getItem('token')!
 }})
 }
-update(){
-
+update(id:string,title:string,body:string){
+return this.http.put(this.URL+id,{title,body},{headers:{
+  authorization:window.localStorage.getItem('token')!
+}})
 }
   }
 

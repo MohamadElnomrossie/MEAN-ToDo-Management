@@ -1,11 +1,11 @@
-        <div class='m-2 shadow p-2 mb-2 bg-body rounded'>
-            <div class="card" style="width: 18rem;">
+        <div class='m-2 shadow p-2 mb-2 bg-body rounded '>
+            <div class="card col">
                 <div class="card-body">
                     <h5 id="title" class="card-title">{{title}}</h5>
                     <p id="body" class="card-text">{{body}}</p>
                     <div class="text-center mx-auto">
-                   <fa-icon class='btn btn-primary mx-2'[icon]="faEdit" (click)="openVerticallyCentered(content)" title="Edit"></fa-icon>
-                   <fa-icon class='btn btn-outline-danger mx-2'[icon]="faTrash" (click)="deleteTodo()" title="Delete"></fa-icon>
+                   <fa-icon class='btn btn-primary mx-2'[icon]="faEdit" (click)="openVerticallyCentered(content)" placement='bottom' ngbTooltip='Edit'></fa-icon>
+                   <fa-icon class='btn btn-outline-danger mx-2'[icon]="faTrash" (click)="deleteTodo()" placement='bottom' ngbTooltip='Delete'></fa-icon>
                 </div>    
             </div>
         </div>
@@ -28,7 +28,7 @@
         </div>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-outline-dark" (click)="Save()">Save</button>
+      <button type="button" class="btn btn-outline-dark" (click)="edit()">Save</button>
     </div>
   </ng-template>
   <script>

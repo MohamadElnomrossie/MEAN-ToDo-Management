@@ -1,6 +1,7 @@
 
 <div class="row container-fluid pt-2">
-<fa-icon class="add btn btn-primary rounded-circle fs-1" [icon]="faList" title="Add new" (click)="openVerticallyCentered(content)"></fa-icon>
+<fa-icon class="add btn btn-primary rounded-circle display-2" placement="left" ngbTooltip="New todo" *ngIf='!empty'[icon]="faList" title="Add new" (click)="openVerticallyCentered(content)"></fa-icon>
+<fa-icon class="logout btn btn-danger rounded-circle display-2" placement='left 'ngbTooltip="Sign Out" [icon]="signout" title="logout" (click)="logout()"></fa-icon>
 <ng-template #content let-modal>
     <div class="modal-header">
       <h4 class="modal-title" id="modal-basic-title">New... </h4>
@@ -21,12 +22,17 @@
       <button type="button" class="btn btn-outline-dark" (click)="Save()">Save</button>
     </div>
   </ng-template>
-  
 
-<div *ngFor='let todo of todos'>
-<app-to-docard [id]='todo._id'
+<div class='container mx-auto text-center'*ngIf="empty">
+<h1 class="display-3 mx-auto">You do not have any todos</h1><br>
+<button class="btn btn-primary ms-auto" (click)="openVerticallyCentered(content)">Create New...</button></div>
+<div class='container' *ngFor='let todo of todos'>
+<app-to-docard class='col-10' [id]='todo._id'
 [title]='todo.title'
-[body]='todo.body'></app-to-docard>
+[body]='todo.body'
+(todoDeleted)='Delete($event)'
+(todoUpdated)='edit($event)'></app-to-docard>
 </div></div>
+
 
 

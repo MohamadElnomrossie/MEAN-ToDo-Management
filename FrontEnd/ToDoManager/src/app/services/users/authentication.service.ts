@@ -13,14 +13,18 @@ login(email:string,password:string) {
   return this.userInfo=this.http.post(this.usersUrl+'login',{email,password})
   }
 loggedIn():boolean {
-        return !!this.userInfo
-                                } 
+        if (window.localStorage.getItem('token')&&window.localStorage.getItem('id')){
+          return true
+        }
+        else{ return false}
+        
+                    } 
 signup(user:ISignUP){
   return this.http.post(this.usersUrl+'signup',user)
 }
-
-
-
-
-
+logout(){
+  window.localStorage.clear()
+  this.userInfo=undefined
+  return true
+}
 }
