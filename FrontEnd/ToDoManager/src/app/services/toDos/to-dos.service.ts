@@ -15,8 +15,11 @@ createToDo(title:string,body:string){
 return this.http.post(this.URL+'add',{title,body},{headers:{
   authorization:window.localStorage.getItem('token')!}})
 }
-deleteToDo(){
-
+deleteToDo(id:string){
+  
+return this.http.delete(this.URL+id,{headers:{
+  authorization:window.localStorage.getItem('token')!
+}})
 }
 update(){
 

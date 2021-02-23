@@ -23,8 +23,10 @@
   </ng-template>
   
 
-  
-<app-to-docard></app-to-docard>
-</div>
+<div *ngFor='let todo of todos'>
+<app-to-docard [id]='todo._id'
+[title]='todo.title'
+[body]='todo.body'></app-to-docard>
+</div></div>
 
 

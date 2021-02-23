@@ -1,4 +1,4 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit,Input,Output,EventEmitter } from '@angular/core';
 import { ToDosService } from 'src/app/services/toDos/to-dos.service';
 import {faEdit,faTrash} from '@fortawesome/free-solid-svg-icons'
 import {  NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -12,41 +12,45 @@ export class ToDOCardComponent implements OnInit {
   todos:any[]=[]
   faEdit=faEdit
   faTrash=faTrash
-  title:string=''
-  body:string=''
-
+  @Input() title:string=''
+  @Input() body:string=''
+  @Input() id:string=''
+  @Output() todoDeleted=new EventEmitter()
+loading=false;
   constructor(private articleService:ToDosService
     ,private modalService: NgbModal) {
- 
    }
 
   ngOnInit(): void {
-  
-    this.getMyTodos()
+
   }
-  getMyTodos(){
-    this.articleService.getMyTodos().subscribe(
-      (result:any)=>{
-        this.todos=result!
-      },
-      error=>{
-        console.log(error);
-      }
-    )
-  }
+
   edit(){
-    console.log("true");
+    
   }
    rem(element:any, _:any) {
     console.log(element);
     element.remove();
 }
-  delete(){
-  document.querySelector('#body')?.parentElement?.parentElement?.remove()
+  deleteTodo(){
+  this.loading=true
+   this.articleService.deleteToDo(this.id).subscribe(
+     result=>{
+      console.log("Deleted");
+      
+     },
+     error=>{
+      console.log(error);
+     }
+   )
+  this.loading=false
+  document.querySelector('#body')?.parentElement?.parentElement?.parentElement?.remove()
+  
   }
   openVerticallyCentered(content:any){
     this.modalService.open(content, { centered: true });
   }
 Save(){}
+
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit,Output,EventEmitter } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import {  NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToDosService } from 'src/app/services/toDos/to-dos.service';
 import {faList} from '@fortawesome/free-solid-svg-icons'
@@ -9,13 +9,12 @@ import {faList} from '@fortawesome/free-solid-svg-icons'
 })
 export class HomeComponent implements OnInit {
   faList=faList
-  title:string=''
-  body:string=''
+ 
   loading=false
-  @Output() ShowTodos = new EventEmitter()
-
-  todos:any[]=[]
-
+  todos:any=[]
+ id:string=''
+title:string=''
+ body:string=''
   constructor(private articleService:ToDosService,
     private modalService: NgbModal) {
     //this.id=window.localStorage.getItem('id');
@@ -26,6 +25,7 @@ export class HomeComponent implements OnInit {
     this.articleService.getMyTodos().subscribe(
       (result:any)=>{
         this.todos=result!
+        console.log(this.todos);
       },
       error=>{
         console.log(error);
